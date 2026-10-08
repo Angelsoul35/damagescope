@@ -47,8 +47,11 @@ class InspectionService:
             boxes, area = [], 0
 
         severity = assess(
-            area, size * size, len(boxes),
-            self.settings.severity_medium, self.settings.severity_high,
+            area,
+            size * size,
+            len(boxes),
+            self.settings.severity_medium,
+            self.settings.severity_high,
         )
         return {
             "damaged": bool(damaged),

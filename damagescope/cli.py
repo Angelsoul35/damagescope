@@ -44,9 +44,11 @@ def cmd_demo(args) -> None:
         sample = make_sample(seed=9000 + int(damaged), size=settings.image_size, damaged=damaged)
         result = service.inspect(sample.image)
         label = "DAMAGED" if damaged else "CLEAN"
-        print(f"   [{label}] -> damaged={result['damaged']} conf={result['confidence']} "
-              f"severity={result['severity']} regions={result['n_regions']} "
-              f"cost={result['estimated_cost_cop']:,.0f} COP")
+        print(
+            f"   [{label}] -> damaged={result['damaged']} conf={result['confidence']} "
+            f"severity={result['severity']} regions={result['n_regions']} "
+            f"cost={result['estimated_cost_cop']:,.0f} COP"
+        )
 
     print("3) Localization quality (mean IoU over damaged samples) ...")
     ious = []
