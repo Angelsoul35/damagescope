@@ -1,4 +1,4 @@
-.PHONY: install test lint train export run demo clean
+.PHONY: install test lint train export run demo benchmark clean
 
 install:
 	pip install -e ".[dev,onnx]"
@@ -17,6 +17,9 @@ export:         ## Export the trained model to ONNX for CPU inference
 
 demo:
 	python -m damagescope.cli demo
+
+benchmark:      ## Benchmark the detector on vendored real car photos (CV + held-out)
+	python -m damagescope.real_benchmark
 
 run:
 	uvicorn damagescope.main:app --reload --port 8000

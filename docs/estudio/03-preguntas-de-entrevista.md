@@ -12,8 +12,9 @@ porque un rayón o abollón agrega bordes fuertes que un panel liso no tiene, as
 dañado de limpio.
 
 **¿Por qué Random Forest y no una red neuronal?**
-Porque no hay GPU ni un dataset grande de fotos reales, y quiero algo rápido, explicable y
-reproducible. Es una línea base honesta y medible; una red profunda sería el siguiente paso.
+Porque quiero algo rápido, explicable y reproducible que corra sin GPU. Es una base rigurosa,
+sin fuga de datos (*leakage-free*) y medible —validada además sobre fotos reales de carros—;
+una red profunda es el siguiente paso que la **extiende**.
 
 ## Nivel media / senior
 

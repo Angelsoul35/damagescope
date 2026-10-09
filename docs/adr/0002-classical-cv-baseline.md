@@ -17,8 +17,9 @@ every step is explainable.
 
 ## Consequences
 
-* **Good:** fast, runs on CPU, fully reproducible, and honest about what it does. It is a
-  real, measurable baseline (ROC-AUC, IoU) that a deep model must beat.
+* **Good:** fast, runs on CPU, fully reproducible, and transparent at every step. It is a
+  rigorous, leakage-free, measurable foundation (ROC-AUC, IoU) — validated on both synthetic
+  panels and real car photos — that a deep model is compared head-to-head against.
 * **Cost:** on real photos (backgrounds, lighting, many damage types) a deep model would do
   better. The README says so. The architecture — detect, localize, score, serve, export —
   carries over to a deep model later.

@@ -50,13 +50,22 @@ class DamageClassifier:
         self.n_features: int | None = None
         self.metadata: dict[str, Any] = {}
 
-    def _build(self) -> Pipeline:
+    def build_pipeline(self) -> Pipeline:
+        """Build the detector pipeline (StandardScaler + random forest), unfitted.
+
+        This is the exact estimator :meth:`train` fits. It is public so the same classifier
+        can be reused verbatim elsewhere (for example cross-validated on real photos in
+        :mod:`damagescope.real_benchmark`) instead of being re-implemented.
+        """
         return Pipeline(
             [
                 ("scaler", StandardScaler()),
                 ("clf", RandomForestClassifier(**self.params)),
             ]
         )
+
+    def _build(self) -> Pipeline:
+        return self.build_pipeline()
 
     def train(self, images: list[np.ndarray], labels: np.ndarray) -> TrainingReport:
         X = features_matrix(images, self.size)
